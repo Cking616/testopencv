@@ -65,7 +65,7 @@ def test_img(jpg):
         print("FOUP Center Position: X:", i[0], "Y:", i[1])
         message = "FOUP center offset\nDeltX:" + str(xp) + "  DeltY:" + str(yp)
         print(message)
-        print("Caculate time cost:", end - start)
+        print("Computation cost:", end - start)
         plt.subplot(122)
         plt.imshow(img)
         plt.xticks([])

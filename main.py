@@ -15,6 +15,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import time
+from matplotlib.font_manager import FontProperties
+font_song = FontProperties(fname=r"c:\windows\fonts\simsun.ttc", size=12)
 
 
 def test_img(jpg):
@@ -39,7 +41,6 @@ def test_img(jpg):
     plt.show()
     plt.close()
     """
-
     circles1 = cv2.HoughCircles(gray, cv2.HOUGH_GRADIENT, 1, sp[1] / 2,
                                 param1=100, param2=90, minRadius=0, maxRadius=300)
     end = time.clock()
@@ -62,10 +63,11 @@ def test_img(jpg):
         print(message)
         xp = sp[1] / 2 - i[0]
         yp = sp[0] / 2 - i[1]
-        print("FOUP Center Position: X:", i[0], "Y:", i[1])
-        message = "FOUP center offset\nDeltX:" + str(xp) + "  DeltY:" + str(yp)
+        print(" FOUP Center Position: X:", i[0], "Y:", i[1])
+        message = "此FOUP圆心离图片中心偏移\nX坐标:" + str(xp) + "  Y坐标:" + str(yp)
         print(message)
         print("Computation cost:", end - start)
+        plt.title(message, fontproperties=font_song)  # title包含中文
         plt.subplot(122)
         plt.imshow(img)
         plt.xticks([])
